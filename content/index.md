@@ -58,4 +58,3 @@ tags: [lexery, meta]
 ---
 
 *Автономна система — оновлюється щоденно через `launchd`. Powered by Obsidian + Quartz.*
-# Deploy trigger
