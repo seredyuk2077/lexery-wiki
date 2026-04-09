@@ -26,7 +26,7 @@ U1 — **вхідна точка** всього [[Lexery - Brain Architecture|Br
 
 - `apps/brain/gateway/auth.ts` — перевірка `DEV_API_KEY` і `DEV_ALLOW_ANONYMOUS` mode
 - `apps/brain/gateway/handler.ts` — основний HTTP handler для `POST /v1/runs`
-- `apps/brain/gateway/attachments.ts` — обробка вкладень, byte caps, overflow до [[Lexery - R2 and Storage|R2]]
+- `apps/brain/gateway/attachments.ts` — обробка вкладень, byte caps, overflow до [[Lexery - Storage Topology|R2]]
 - `apps/brain/gateway/storage.ts` — persistence run record у Supabase `runs` таблиці
 - `apps/brain/gateway/queue*.ts` — enqueue до Redis / BullMQ для U2
 
@@ -63,7 +63,7 @@ Rate-limiting працює per-tenant: `RUNS_PER_MINUTE` і `MAX_CONCURRENT_RUNS
 Вкладення проходять:
 
 1. **Byte-cap перевірка** — максимальний розмір кожного файлу з конфігу; перевищення → rejection.
-2. **Run-scoped R2 upload** — кожен attachment зберігається під префіксом `runs/{run_id}/attachments/` у [[Lexery - R2 and Storage|Cloudflare R2]].
+2. **Run-scoped R2 upload** — кожен attachment зберігається під префіксом `runs/{run_id}/attachments/` у [[Lexery - Storage Topology|Cloudflare R2]].
 3. **Manifest запис** — `attachments_manifest` JSONB у `runs` таблиці містить масив `{filename, mime_type, size_bytes, r2_key}` для downstream stages.
 4. **Query overflow** — якщо `query` перевищує `QUERY_R2_THRESHOLD_BYTES`, тіло запиту також мігрує в R2 з ref у колонці.
 

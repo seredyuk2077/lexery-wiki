@@ -50,7 +50,7 @@ U9 отримує `evidence_assembly` від [[Lexery - U7 Evidence Assembly|U7]
 **Етапи виконання:**
 
 1. **Meta-Triage** — LLM-driven (configurable model + timeout) або deterministic: оцінює які evidence channels найрелевантніші для конкретного запиту. Для очевидних law-only turns **пропускає MM Docs probe** (оптимізація tail-latency).
-2. **Snippet Loading** — canonical snippets завантажуються з [[Lexery - R2 and Storage|R2]] (повний текст НЕ зберігається в DB); кожен snippet тегується provenance: `{source: 'lldbi' | 'memory' | 'doc', r2_key, article_ref}`.
+2. **Snippet Loading** — canonical snippets завантажуються з [[Lexery - Storage Topology|R2]] (повний текст НЕ зберігається в DB); кожен snippet тегується provenance: `{source: 'lldbi' | 'memory' | 'doc', r2_key, article_ref}`.
 3. **Budget Allocation** — розподіл token budget між law refs, memory, docs, history згідно `U9_BUDGET_PROFILE` і multi-signal weights.
 4. **Truncation** — при перевищенні budget snippets обрізаються за пріоритетом (top-ranked залишаються повними, lower-ranked truncated або dropped).
 5. **Provenance Tagging** — кожен включений snippet отримує `lawSourceRef` для downstream citation validation у [[Lexery - U11 Verify|U11]].
@@ -81,7 +81,7 @@ U9 отримує `evidence_assembly` від [[Lexery - U7 Evidence Assembly|U7]
 }
 ```
 
-**Повний snippet text НЕ зберігається в DB** — лише metadata і refs. При потребі (debug, replay) snippets re-loadable з [[Lexery - R2 and Storage|R2]] за `r2_key`.
+**Повний snippet text НЕ зберігається в DB** — лише metadata і refs. При потребі (debug, replay) snippets re-loadable з [[Lexery - Storage Topology|R2]] за `r2_key`.
 
 ## Test Coverage
 
@@ -113,7 +113,7 @@ U9 отримує `evidence_assembly` від [[Lexery - U7 Evidence Assembly|U7]
 - [[Lexery - Provider Topology]]
 - [[Lexery - Run Lifecycle]]
 - [[Lexery - Brain Architecture]]
-- [[Lexery - R2 and Storage]]
+- [[Lexery - Storage Topology]]
 - [[Lexery - U11 Verify]]
 - [[Lexery - Coverage Gap Honesty]]
 - [[Lexery - Contracts and Run Schema]]

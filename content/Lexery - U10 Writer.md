@@ -139,4 +139,4 @@ U10 — головний cost driver pipeline: premium model (`gpt-5.2`) з ве
 - [[Lexery - Brain Architecture]]
 - [[Lexery - Contracts and Run Schema]]
 - [[Lexery - U8 Legal Reasoning]]
-- [[Lexery - R2 and Storage]]
+- [[Lexery - Storage Topology]]

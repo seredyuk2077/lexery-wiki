@@ -107,7 +107,7 @@ git commit -m "add: <що додав>"
 - Не перекладай назви файлів, функцій, змінних
 
 ### Wikilinks
-Завжди використовуй `[[Lexery - Page Name]]` для посилань на інші сторінки. Більше зв'язків = краще.
+Завжди використовуй `Lexery - Page Name` для посилань на інші сторінки. Більше зв'язків = краще.
 
 ### See Also
 В кінці кожної сторінки — `## See Also` з посиланнями на пов'язані сторінки.
@@ -145,7 +145,7 @@ node "/Users/andriyseredyuk/Documents/Lexery/LLM Wiki/_system/scripts/run-mainte
 
 ## Web доступ
 
-Wiki доступна онлайн: **https://lexeryai.github.io/wiki**
+Wiki доступна онлайн: **https://seredyuk2077.github.io/lexery-wiki**
 
 Зміни автоматично публікуються після push на GitHub.
 
